@@ -3,11 +3,16 @@ using namespace std;
 double my_pow(double num, int pow)
 {
     double result=1;
-
- 
+    if (pow>0)
+    {
         for (int i=0; i<pow;i++)
         result*=num;
-
+   }
+    else
+    {
+        for (int i=0; i>pow; i--)
+        result/=num;
+    }
    return result;
 }
 int main()
