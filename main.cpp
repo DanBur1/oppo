@@ -1,14 +1,19 @@
 #include <iostream>
 using namespace std;
-double my_pow(double num, int pow)
-{
-    double result=1;
+double fast_pow(double num,unsigned int pow) {
+    long result = 1;
+    while(pow) {
+        if (pow % 2 == 0) {
+            pow /= 2;
+            num *= num;
+        }
+        else {
+            pow--;
+            result *= num;
+        }
+    }
 
- 
-        for (int i=0; i<pow;i++)
-        result*=num;
-
-   return result;
+    return result;
 }
 int main()
 {
@@ -16,8 +21,7 @@ int main()
     int pow;
     cout << "Type the number and it's power ";
     cin >> num >> pow;
-    result =my_pow(num, pow);
-    cout << "Answer is - " << result << endl;
+    cout << "Answer is - " << fast_pow << endl;
     return 0;
 }
 
